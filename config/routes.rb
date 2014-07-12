@@ -1,9 +1,34 @@
 CMS::Application.routes.draw do
+
+  
+ 
+  #get "sections/index"
+  #get "sections/new"
+  #get "sections/show"
+  #get "sections/edit"
+  #get "sections/delete"
+
+  #get "pages/index"
+  #get "pages/new"
+  #get "pages/show"
+  #get "pages/edit"
+  #get "pages/delete"
   #get "demo/index"
+   #get "subjects/delete"
+   #get "subjects/edit"
+   #get "subjects/show"
+   #get "subjects/index"
+   #get "subjects/new"
+
+
+
 
   root "demo#index"
 
-  match  ':controller(/:action(/:id))', :via => :get
+  #match  ':controller(/:action(/:id))', :via => :get
+  #match ':controller(/:action(/:id))', :via => [:get, :post]
+  match ':controller(/:action(/:id))', :via => [:get, :post]
+
   #root :to => "demo#hello"
 
 
