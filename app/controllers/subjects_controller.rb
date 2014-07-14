@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
 
-  layout  false
+  layout  "admin"
   def new
     @subject = Subject.new( :name => "Default")
   end

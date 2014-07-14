@@ -1,18 +1,24 @@
 class SectionsController < ApplicationController
 
-  layout false
+  layout "admin"
 
   def index
     @sections = Section.order("position ASC")
   end
 
+
+
   def show
     @section = Section.find(params[:id])
   end
 
+
+
   def new
     @section = Section.new({:name => "Default"})
   end
+
+
 
   def create
     @section = Section.new(section_params)
@@ -24,9 +30,13 @@ class SectionsController < ApplicationController
     end
   end
 
+
+
   def edit
     @section = Section.find(params[:id])
   end
+
+
 
   def update
     @section = Section.find(params[:id])
@@ -38,15 +48,20 @@ class SectionsController < ApplicationController
     end
   end
 
+
+
   def delete
     @section = Section.find(params[:id])
   end
+
+
 
   def destroy
     section = Section.find(params[:id]).destroy
     flash[:notice] = "Section destroyed successfully."
     redirect_to(:action => 'index')
   end
+
 
 
   private
