@@ -6,19 +6,16 @@ class SectionsController < ApplicationController
     @sections = Section.order("position ASC")
   end
 
-
-
   def show
     @section = Section.find(params[:id])
   end
 
-
-
   def new
     @section = Section.new({:name => "Default"})
+    @pages = Pages.order('position ASC')
+    @section_count = Section.count + 1
+    
   end
-
-
 
   def create
     @section = Section.new(section_params)
@@ -26,14 +23,17 @@ class SectionsController < ApplicationController
       flash[:notice] = "Section created successfully."
       redirect_to(:action => 'index')
     else
+      @pages = Pages.order('position ASC')
+      @section_count = Section.count + 1
+      
       render('new')
     end
   end
 
-
-
   def edit
     @section = Section.find(params[:id])
+    @section_count = Section.count 
+    @pages = Page.order('position ASC')
   end
 
 
@@ -44,6 +44,8 @@ class SectionsController < ApplicationController
       flash[:notice] = "Section updated successfully."
       redirect_to(:action => 'show', :id => @section.id)
     else
+        @pages = Page.order('position ASC')
+        @section_count = Section.count
       render('edit')
     end
   end
@@ -67,7 +69,7 @@ class SectionsController < ApplicationController
   private
 
     def section_params
-      params.require(:section).permit(:page_id, :name, :position, :visible, :content_type, :content)
+      params.require(:section).permit(:page_id, :name, :position, :visible, :content_type, :content, :created_at)
     end
 
 end

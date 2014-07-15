@@ -3,7 +3,8 @@
 <div class="sections index">
   <h2>Sections</h2>
 
-  <%= link_to("Add New Section", {:action => 'new'}, :class => 'action new') %>
+  <%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+' ) + " Add New Section", {:action => 'new'}, :class => 'action new') %>
+
   <div><%= pluralize(@sections.size, 'section')%> found </div>
 
   <table class="listing" summary="Section list">
