@@ -12,7 +12,7 @@ class SectionsController < ApplicationController
 
   def new
     @section = Section.new({:name => "Default"})
-    @pages = Pages.order('position ASC')
+    @pages = Page.order('position ASC')
     @section_count = Section.count + 1
     
   end
@@ -23,7 +23,7 @@ class SectionsController < ApplicationController
       flash[:notice] = "Section created successfully."
       redirect_to(:action => 'index')
     else
-      @pages = Pages.order('position ASC')
+      @pages = Page.order('position ASC')
       @section_count = Section.count + 1
       
       render('new')

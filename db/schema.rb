@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711112630) do
+ActiveRecord::Schema.define(version: 20140715125239) do
 
   create_table "admin_users", force: true do |t|
-    t.string   "first_name", limit: 25
-    t.string   "last_name",  limit: 50
-    t.string   "email",      limit: 100, default: "", null: false
-    t.string   "username",   limit: 25
-    t.string   "password",   limit: 40
+    t.string   "first_name",      limit: 25
+    t.string   "last_name",       limit: 50
+    t.string   "email",           limit: 100, default: "", null: false
+    t.string   "username",        limit: 25
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
   create_table "admin_users_pages", id: false, force: true do |t|
