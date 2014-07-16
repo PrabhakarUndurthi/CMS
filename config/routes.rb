@@ -2,6 +2,8 @@ CMS::Application.routes.draw do
 
   
  
+  get "access/index"
+  get "access/login"
   #get "sections/index"
   #get "sections/new"
   #get "sections/show"
