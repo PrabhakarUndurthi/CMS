@@ -2,8 +2,8 @@ CMS::Application.routes.draw do
 
   
  
-  get "access/index"
-  get "access/login"
+  #get "access/index"
+  #get "access/login"
   #get "sections/index"
   #get "sections/new"
   #get "sections/show"
@@ -26,6 +26,8 @@ CMS::Application.routes.draw do
 
 
   root "demo#index"
+
+  get 'admin' , :to  => 'access#index'
 
   #match  ':controller(/:action(/:id))', :via => :get
   #match ':controller(/:action(/:id))', :via => [:get, :post]

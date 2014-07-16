@@ -1,6 +1,9 @@
 class SubjectsController < ApplicationController
 
   layout  "admin"
+
+  before_action :confirm_logged_in
+  
   def new
     @subject = Subject.new( :name => "Default")
     @subject_count = Subject.count + 1
