@@ -36,4 +36,11 @@ class AdminUser < ActiveRecord::Base
 		end
 	end
 
+scope :sorted, lambda {order("last_name ASC, first_name ASC")}
+
+	def name 
+	"#{first_name} #{last_name}" 
+	end
+
+
 end

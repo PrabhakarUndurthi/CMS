@@ -1,6 +1,10 @@
 class Section < ActiveRecord::Base
 
 	has_many :section_edits
+
+	after_save :touch_page
+
+	acts_as_list :scope => :page
 	has_many :editors, :through => :section_edits, :class_name => "AdminUser"
 
 	CONTENT_TYPES = ['text', 'HTML']
@@ -10,4 +14,11 @@ class Section < ActiveRecord::Base
 	:message => "must be one of: #{CONTENT_TYPES.join(', ')}"
 	validates_presence_of :content
 	validates_length_of :content, :minimum => 10, :maximum => 1000
+
+	private 
+
+	  def touch_page
+	  	page.touch
+	  end
+    end
 end

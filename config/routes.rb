@@ -2,6 +2,15 @@ CMS::Application.routes.draw do
 
   
  
+  #get "public/index"
+  #get "public/show"
+  #get "admin_users/new"
+  #get "admin_users/create"
+  #get "admin_users/edit"
+  #get "admin_users/update"
+  
+  #get "admin_users/delete"
+  #get "admin_users/destroy"
   #get "access/index"
   #get "access/login"
   #get "sections/index"
@@ -25,7 +34,9 @@ CMS::Application.routes.draw do
 
 
 
-  root "demo#index"
+  root "public#index"
+
+  get 'show/:permalink', :to => 'public#show'
 
   get 'admin' , :to  => 'access#index'
 
